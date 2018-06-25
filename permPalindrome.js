@@ -18,22 +18,18 @@ function palindrome(str) {
     //if the hashmap doesnt have a property withe value of the string[index]
     let isInHashMap = newHashMap._findSlot(letter);
 
-    // console.log(newHashMap._slots[isInHashMap]);
-    if (newHashMap._slots[isInHashMap] === undefined) {
-      //create new property with the value of one
-      newHashMap.set(letter, 1);
-      //else
-    } else {
-      let index = newHashMap._findSlot(letter);
-      let count = newHashMap._slots[index].value;
+    try {
+      let count = newHashMap.get(letter);
       count++;
-      //increment that the property of the value by one
       newHashMap.set(letter, count);
+    } catch (err) {
+      newHashMap.set(letter, 1);
     }
+    // console.log(newHashMap._slots[isInHashMap]);
   }
   for (let i = 0; i < str.length; i++) {
-    let index = newHashMap._findSlot(str[i]);
-    let count = newHashMap._slots[index].value;
+    let letter = str[i];
+    let count = newHashMap.get(letter);
 
     if (count % 2 !== 0) {
       odd++;
@@ -46,4 +42,4 @@ function palindrome(str) {
 
 }
 
-console.log(palindrome('north'));
+console.log(palindrome('acecarr'));
