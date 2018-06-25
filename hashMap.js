@@ -84,7 +84,7 @@ HashMap.SIZE_RATIO = 3;
 const lor = new HashMap();
 lor.set('Hobbit', 'Bilbo');
 lor.set('Hobbit', 'Frodo');
-console.log(lor);
-console.log(JSON.stringify(lor, null, 2));
+// console.log(lor);
+// console.log(JSON.stringify(lor, null, 2));
 
 module.exports = HashMap;

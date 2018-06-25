@@ -33,10 +33,10 @@ function palindrome(str) {
   }
   for (let i = 0; i < str.length; i++) {
     let index = newHashMap._findSlot(str[i]);
-    let count = newHashMap._slots[index].value
+    let count = newHashMap._slots[index].value;
 
     if (count % 2 !== 0) {
-      odd++
+      odd++;
     }
     if (odd > 1) {
       return false;
