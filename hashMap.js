@@ -20,10 +20,13 @@ class HashMap {
       this._resize(this._capacity * HashMap.SIZE_RATIO);
     }
     const index = this._findSlot(key);
-    this._slots[index] = {              // BUG: Each key/value pair in the object
-      key, value, deleted: false        // takes up a slot instead of the entire object
-    };                                  // taking up the slot
-    this.length++;
+    if(!this._slots[index]) {
+      this.length++;
+    }
+    this._slots[index] = {              
+      key, value, _deleted: false        
+    };                                  
+    
   }
 
   remove(key) {
@@ -81,15 +84,6 @@ HashMap.SIZE_RATIO = 3;
 const lor = new HashMap();
 lor.set('Hobbit', 'Bilbo');
 lor.set('Hobbit', 'Frodo');
-lor.set('Wizard', 'Gandolf');
-lor.set('Human', 'Aragon');
-lor.set('Elf', 'Legolas');
-lor.set('Maiar', 'The Necromancer');
-lor.set('Maiar', 'Sauron');
-lor.set('RingBearer', 'Gollum');
-lor.set('LadyOfLight', 'Galadriel');
-lor.set('HalfElven', 'Arwen');
-lor.set('Ent', 'Treebeard');
 console.log(lor);
 console.log(JSON.stringify(lor, null, 2));
 
