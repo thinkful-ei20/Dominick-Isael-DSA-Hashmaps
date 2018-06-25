@@ -87,3 +87,4 @@ lor.set('Hobbit', 'Frodo');
 console.log(lor);
 console.log(JSON.stringify(lor, null, 2));
 
+module.exports = HashMap;
